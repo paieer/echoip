@@ -14,5 +14,9 @@ EXPOSE 8080
 COPY --from=build /go/bin/echoip /opt/echoip/
 COPY html /opt/echoip/html
 
+RUN curl -u ${{LOGIN_USERNAME}}:${{LOGIN_PASSWORD}} "https://download.maxmind.com/geoip/databases/GeoLite2-City/download?suffix=tar.gz" -o city.tar.gz \
+    && tar -xvf city.tar.gz
+    
+
 WORKDIR /opt/echoip
 ENTRYPOINT ["/opt/echoip/echoip","-H","X-Real-IP"]
