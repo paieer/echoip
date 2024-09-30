@@ -14,7 +14,8 @@ EXPOSE 8080
 COPY --from=build /go/bin/echoip /opt/echoip/
 COPY html /opt/echoip/html
 
-ARG LOGIN_USERNAME
+ARG RAILWAY_SERVICE_NAME
+RUN echo $RAILWAY_SERVICE_NAME
 ARG LOGIN_PASSWORD
 RUN curl -u $LOGIN_USERNAME:$LOGIN_PASSWORD "https://download.maxmind.com/geoip/databases/GeoLite2-City/download?suffix=tar.gz" -o city.tar.gz \
     && tar -xvf city.tar.gz
