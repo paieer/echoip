@@ -15,12 +15,10 @@ COPY --from=build /go/bin/echoip /opt/echoip/
 COPY html /opt/echoip/html
 
 ARG RAILWAY_ENVIRONMENT
-ARG LOGIN_USERNAME
-ARG LOGIN_PASSWORD
+ARG LOGIN_BASIC
 
-WORKDIR /opt
-RUN curl -u $LOGIN_USERNAME:$LOGIN_PASSWORD "https://download.maxmind.com/geoip/databases/GeoLite2-City/download?suffix=tar.gz" -o /opt/city.tar.gz \
-    && tar -zxvf /opt/city.tar.gz
+#RUN curl -H "Authorization: Basic LOGIN_BASIC" "https://download.maxmind.com/geoip/databases/GeoLite2-City/download?suffix=tar.gz" -o /opt/city.tar.gz \
+#    && tar -zxvf /opt/city.tar.gz
     
 WORKDIR /opt/echoip
 ENTRYPOINT ["/opt/echoip/echoip","-H","X-Real-IP"]
