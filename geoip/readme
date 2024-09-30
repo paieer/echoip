@@ -1,0 +1,8 @@
+# Download the geoip db at https://dev.maxmind.com/geoip/geoip2/geolite2/
+# sample link
+# https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz
+# https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz
+# extract and place the 2 files into this directory
+
+https://download.maxmind.com/geoip/databases/GeoLite2-City/download?suffix=tar.gz
+https://download.maxmind.com/geoip/databases/GeoLite2-Country/download?suffix=tar.gz
