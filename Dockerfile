@@ -16,4 +16,5 @@ COPY html /opt/echoip/html
 
 WORKDIR /opt/echoip
 #ENTRYPOINT ["/opt/echoip/echoip -c /opt/GeoLite2-City.mmdb -f /opt/GeoLite2-Country.mmdb -H X-Real-IP"]
-ENTRYPOINT ["/opt/echoip/echoip -H X-Real-IP"]
+COPY start.sh /opt/echoip
+CMD ["/opt/echoip/start.sh"]
