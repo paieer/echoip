@@ -18,6 +18,7 @@ ARG RAILWAY_ENVIRONMENT
 ARG AccountID
 ARG LicenseKey
 
+RUN apt update && apt install wget curl tar -y
 WORKDIR /opt
 RUN curl -u $AccountID:$LicenseKey -o /opt/city.tar.gz "https://download.maxmind.com/geoip/databases/GeoLite2-City/download?suffix=tar.gz"
 RUN tar -zxvf /opt/city.tar.gz
